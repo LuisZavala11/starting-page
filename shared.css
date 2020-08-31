@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css?family=Anton");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+
+
+* {
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    display: grid;
+    grid-template-rows: 3rem auto fit-content(8rem);
+    grid-template-areas: "header"
+                         "main"
+                         "footer";
+    height: 100%;
+/*     padding-top: 3rem; */
+}
+
+main{
+   /*  min-height: calc(100vh - 3rem - 8.5rem); */
+   grid-area: main;
+}
+
+.backdrop{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: none;
+}
+
+
+.main-header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background:  #2ddf5c;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+/* .main-header > div{
+    display: inline-block;
+    vertical-align: middle;
+} */
+
+.toggle-button {
+    width: 3rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding-top: 0;
+    padding-bottom: 0;
+    vertical-align: middle;
+  }
+  
+  .toggle-button:focus {
+    outline: none;
+  }
+  
+  .toggle-button__bar {
+    width: 100%;
+    height: 0.2rem;
+    background: black;
+    display: block;
+    margin: 0.6rem 0;
+  }
+  
+
+.main-header__brand{
+    color: #0e4f1f;
+    text-decoration: none;
+   /*  height: 1.4rem; */
+   /*  display: inline-block;
+    vertical-align: middle; */
+ font-weight: bold;
+}
+
+.main-header__brand img{
+    height: 2.5rem;
+    vertical-align: middle;
+}
+
+.main-nav{
+    /* display: inline-block;
+    width: calc(100% - 44px);
+    text-align: right;
+    vertical-align: middle; */
+    display:none;
+}
+
+
+.main-nav__items{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+.main-nav__item{
+    /* display: inline-block; */
+    margin: 0 1rem;
+}
+.main-nav__item a,
+.mobile-nav__item a{
+    color: #0e4f1f;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.2rem 0;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:active{
+    color: white;
+    border-bottom:5px solid white ;
+}
+
+.main-nav__item--cta{
+    animation: wiggle 400ms 3s 8;
+}
+
+.main-nav__item--cta a,
+.mobile-nav__item--cta a{
+    color: white;
+    background: #ff1b68;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active,
+.mobile-nav__item--cta a:hover,
+.mobile-nav__item--cta a:active{
+    background: white;
+    color: #ff1b68;
+    border: none ;
+}
+
+.mobile-nav {
+    display: none; 
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 80%;
+    height: 100vh;
+  }
+
+.open{
+    display: block;
+    opacity: 1 !important; 
+    transform: translateY(0) !important;
+}
+  
+  .mobile-nav__items {
+    width: 90%;
+    height: 100%;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mobile-nav__item {
+    margin: 2rem 0;
+  }
+  
+  .mobile-nav__item a {
+    font-size: 1.5rem;
+  }
+
+ @media (min-width: 50rem){
+
+    .toggle-button{
+        display:none;
+    }
+
+    .main-nav{
+    /* display: inline-block;
+    width: calc(100% - 44px);
+    text-align: right;
+    vertical-align: middle; */
+    display: flex;
+    }
+ }
+
+
+.main-footer{
+    background: black;
+    padding: 2rem;
+    margin-top: 3rem;
+    grid-area: footer;
+}
+
+.main-footer__links{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+   /*  text-align: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ 
+}
+
+.main-footer__link{
+   /*  display: block; */
+    margin: 0.5rem 0;
+}
+
+.main-footer__link a{
+    text-decoration: none;
+    color: white;
+}
+
+.main-footer__link a:hover{
+    color:#ccc;
+}
+
+
+@media (min-width: 50rem){
+    .main-footer__link{
+        margin: 0 1rem;
+    }
+
+    .main-footer__links{
+        flex-direction: row;
+        justify-content: center;
+    }
+
+
+    
+}
+
+.button{
+    font: inherit;
+    color: white;
+    background: #0e4f1f;
+    border: 1.5px solid #0e4f1f;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.button:hover,
+.button:active{
+    color:#0e4f1f;
+    background: white;
+    transform: scale(1.2);
+}
+
+.button:focus{
+    outline: none;
+}
+
+
+@keyframes wiggle{
+    0%{
+        transform: rotateZ(0);
+    }
+
+    50%{
+        transform: rotateZ(-10deg);
+    }
+
+    100%{
+        transform: rotateZ(10deg);
+    }
+}
